@@ -327,7 +327,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         PreviousIntentHandler,
         PlaybackNearlyFinishedHandler,
         PlaybackHandler,
-        AudioFallbackIntentHandle ,
+        AudioFallbackIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
