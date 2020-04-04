@@ -1,0 +1,50 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "お手軽ミュージック",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PlayAudioIntent",
+                    "slots": [],
+                    "samples": [
+                        "音楽かけて",
+                        "音楽をかけて",
+                        "音楽スタートして",
+                        "音楽をスタート",
+                        "音楽をスタートして",
+                        "音楽を再生して",
+                        "音楽再生して",
+                        "音楽再生を開始して",
+                        "音楽を再生開始して",
+                        "音楽再生開始して"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                }
+            ],
+            "types": []
+        }
+    }
+}
