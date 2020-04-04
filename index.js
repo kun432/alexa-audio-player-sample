@@ -213,6 +213,24 @@ const PlaybackNearlyFinishedHandler = {
     }
 };
 
+const AudioFallbackIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && ( Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.ShuffleOffIntent'
+                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.ShuffleOnIntent'
+                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.LoopOnIntent'
+                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.LoopOffIntent' );
+    },
+    async handle(handlerInput) {
+        const speech = 'その機能には対応していません。楽曲を最初から再生します。';
+        const song = playlist[0];
+        return handlerInput.responseBuilder
+            .speak(speech)
+            .addAudioPlayerPlayDirective('REPLACE_ALL', song.url, song.token, 0, null, song.metadata)
+            .getResponse();
+    }
+};
+
 const PlaybackHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope).startsWith === 'AudioPlayer.'
@@ -309,6 +327,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         PreviousIntentHandler,
         PlaybackNearlyFinishedHandler,
         PlaybackHandler,
+        AudioFallbackIntentHandle ,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
